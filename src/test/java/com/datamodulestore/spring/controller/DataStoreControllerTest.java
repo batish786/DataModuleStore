@@ -1,9 +1,10 @@
 package com.datamodulestore.spring.controller;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +17,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
@@ -63,10 +63,6 @@ class DataStoreControllerTest {
 		List<DataDetails> list = new ArrayList<>();
 		
 		DataDetails dataDetails = new DataDetails();
-//		dataDetails.setCity("qwe");
-//		dataDetails.setPostCode("asddf");
-//		dataDetails.setPostCode("15");
-//		dataDetails.setStoreId("5");
 		list.add(dataDetails);
 		
 		when(dataStoreService.fetchAllStoresCsv(Mockito.any())).thenReturn(list);

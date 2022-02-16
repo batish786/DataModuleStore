@@ -5,6 +5,7 @@ import static org.mockito.Mockito.mock;
 
 import java.io.BufferedReader;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
@@ -43,13 +44,16 @@ class DataStoreServiceImplTest {
 	void testFetchAllStoresCsv() {
 		
 		DataDetails dataDetails = new DataDetails();
-		dataDetails.setStoreId("859aac4f-e34d-4392-aef7-9c0c14e49782");
+		dataDetails.setStoreId("1525eec4-7bed-4597-bf5a-e06fcede5f4f");
 		dataDetails.setCity("abc");
 		dataDetails.setPostCode("dfsr555");
+		dataDetails.setOpenedDate(new Date());
 		List<DataDetails> list = new ArrayList<>();
 		list.add(dataDetails);
 		String parameter="city";
-		assertEquals("859aac4f-e34d-4392-aef7-9c0c14e49782", dataStoreServiceImpl.fetchAllStoresCsv(parameter).get(0).getStoreId());
+		String storeId = dataStoreServiceImpl.fetchAllStoresCsv(parameter).get(0).getStoreId();
+		System.out.println(storeId);
+		assertEquals("1525eec4-7bed-4597-bf5a-e06fcede5f4f", dataStoreServiceImpl.fetchAllStoresCsv(parameter).get(0).getStoreId());
 		
 	}
 
